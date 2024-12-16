@@ -16,6 +16,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Car {
+
+    public Car(String name, String brand, String launchYear, CarEnum model) {
+        this.name = name;
+        this.brand = brand;
+        this.launchYear = launchYear;
+        this.model = model;
+    }
+
     @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -23,7 +31,7 @@ public class Car {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     @Enumerated(EnumType.STRING)
     private CarEnum model;
 
